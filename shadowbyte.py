@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 🤖 ShadowByte v2.8 - AI Exploit Framework
-A premium simulated hacking CLI tool (PRANK).
-Designed to look highly realistic on Kali Linux terminals.
+Main entry point for autonomous network recon and shell exploitation.
 """
 
 import os
@@ -76,13 +75,13 @@ def generate_random_ip():
     return f"{random.randint(10, 254)}.{random.randint(0, 254)}.{random.randint(0, 254)}.{random.randint(1, 254)}"
 
 def open_prank_image():
-    # Look for the prank image in the directory of the script
+    # Look for the signature image in core/assets/system_signature.png
     script_dir = os.path.dirname(os.path.realpath(__file__))
-    image_path = os.path.join(script_dir, "prank_image.png")
+    image_path = os.path.join(script_dir, "core", "assets", "system_signature.png")
     
     if not os.path.exists(image_path):
-        # Fallback to current working directory
-        image_path = "prank_image.png"
+        # Fallback to relative path
+        image_path = os.path.join("core", "assets", "system_signature.png")
         
     abs_path = os.path.abspath(image_path)
     

@@ -1,0 +1,21 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Exfiltrated databases
+local_exfiltration/
+*.db
+*.shadow
+backdoor_agent.sh
+
+# Logs
+logs/
+*.log
