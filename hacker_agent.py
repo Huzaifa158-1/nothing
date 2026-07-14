@@ -20,18 +20,19 @@ if hasattr(sys.stdout, 'reconfigure'):
         pass
 
 # ANSI Colors
-GREEN = "\033[92m"
-BRIGHT_GREEN = "\033[1;92m"
+BLUE = "\033[94m"
+BRIGHT_BLUE = "\033[1;94m"
 RED = "\033[91m"
 BRIGHT_RED = "\033[1;91m"
 YELLOW = "\033[93m"
 CYAN = "\033[96m"
+BRIGHT_CYAN = "\033[1;96m"
 WHITE = "\033[97m"
 DARK_GRAY = "\033[90m"
 RESET = "\033[0m"
 
 # Title header to print on start
-BANNER = f"""{BRIGHT_GREEN}
+BANNER = f"""{BRIGHT_BLUE}
 ┌────────────────────────────────────────────────────────────┐
 │   ██████╗██╗  ██╗ █████╗ ██████╗  ██████╗ ██╗    ██╗██████╗    │
 │  ██╔════╝██║  ██║██╔══██╗██╔══██╗██╔═══██╗██║    ██║██╔══██╗   │
@@ -57,7 +58,7 @@ def type_text(text, delay=0.03, color=RESET):
     sys.stdout.write(RESET + '\n')
     sys.stdout.flush()
 
-def progress_bar(label, duration=5.0, color=GREEN):
+def progress_bar(label, duration=5.0, color=CYAN):
     width = 30
     steps = 100
     sleep_time = duration / steps
@@ -119,7 +120,7 @@ def main():
         print(f"   {DARK_GRAY}├─ Proxy Node #{i+1}: {node} (RTT: {random.randint(40, 180)}ms) - ESTABLISHED{RESET}")
     
     time.sleep(0.8)
-    type_text("🤖 [Agent] AI Exploit Module Loaded. Target Bypass Key: SHA-256 Verified.", 0.04, GREEN)
+    type_text("🤖 [Agent] AI Exploit Module Loaded. Target Bypass Key: SHA-256 Verified.", 0.04, BRIGHT_CYAN)
     print("")
     
     # Prompt for IP address
@@ -147,12 +148,12 @@ def main():
     for line in scan_lines:
         time.sleep(random.uniform(0.1, 0.4))
         if "OPEN" in line:
-            print(f"   {GREEN}[+]{RESET} {line}")
+            print(f"   {CYAN}[+]{RESET} {line}")
         else:
             print(f"   {DARK_GRAY}[-]{RESET} {line}")
             
     time.sleep(1.0)
-    print(f"\n{GREEN}Nmap scan completed. Open ports identified: 22 (SSH), 80 (HTTP), 445 (SMB), 8080 (HTTP-ALT){RESET}")
+    print(f"\n{CYAN}Nmap scan completed. Open ports identified: 22 (SSH), 80 (HTTP), 445 (SMB), 8080 (HTTP-ALT){RESET}")
     time.sleep(1.5)
     
     # Phase 2: Vulnerability Analysis
@@ -176,7 +177,7 @@ def main():
             print(f"   {DARK_GRAY}[-] {cve} ({desc}) -> {status}{RESET}")
             
     time.sleep(1.5)
-    type_text(f"🤖 [Agent] Weaponizing CVE-2024-3094 SSH Exploit payload...", 0.04, GREEN)
+    type_text(f"🤖 [Agent] Weaponizing CVE-2024-3094 SSH Exploit payload...", 0.04, BRIGHT_CYAN)
     time.sleep(1.0)
     
     # Phase 3: Brute Forcing SSH / Decryption
@@ -195,7 +196,7 @@ def main():
             sys.stdout.flush()
             time.sleep(0.04)
         if user == "root":
-            sys.stdout.write(f"\r     {GREEN}[SUCCESS] Username 'root' match found! Password decrypted: s3cr3t_p@ssw0rd{RESET}\n")
+            sys.stdout.write(f"\r     {BRIGHT_BLUE}[SUCCESS] Username 'root' match found! Password decrypted: s3cr3t_p@ssw0rd{RESET}\n")
             break
         else:
             sys.stdout.write(f"\r     {RED}[FAILED] Authentication rejected for user '{user}'{RESET}\n")
@@ -220,7 +221,7 @@ def main():
     
     for log in msf_logs:
         time.sleep(random.uniform(0.6, 1.2))
-        color = GREEN if log.startswith("[+]") else (YELLOW if "Warning" in log or "Session" in log else WHITE)
+        color = CYAN if log.startswith("[+]") else (YELLOW if "Warning" in log or "Session" in log else WHITE)
         print(f"   {color}{log}{RESET}")
         
     time.sleep(1.5)
@@ -247,12 +248,12 @@ def main():
     type_text(f"\n🤖 [Agent] Exfiltrating databases to local storage...", 0.03, CYAN)
     print("")
     
-    progress_bar("   Downloading System Hashes (/etc/shadow) ", 4.0, GREEN)
-    progress_bar("   Downloading Private SSH Credentials    ", 3.0, GREEN)
+    progress_bar("   Downloading System Hashes (/etc/shadow) ", 4.0, CYAN)
+    progress_bar("   Downloading Private SSH Credentials    ", 3.0, CYAN)
     progress_bar("   Downloading Vault Database (.db)       ", 5.0, RED)
     
     time.sleep(1.0)
-    type_text(f"\n[+] Data breach sequence complete. Bypassed target logs.", 0.03, GREEN)
+    type_text(f"\n[+] Data breach sequence complete. Bypassed target logs.", 0.03, BRIGHT_CYAN)
     time.sleep(0.5)
     type_text(f"🤖 [Agent] Securing connections. Disconnecting exploit session safely...", 0.04, CYAN)
     time.sleep(1.5)
@@ -272,9 +273,9 @@ def main():
     sys.stdout.flush()
     time.sleep(2.0)
     
-    # The Prank Reveal!
+    # Successful Breach Final Screen!
     clear_screen()
-    print(f"\n\n{BRIGHT_GREEN}")
+    print(f"\n\n{BRIGHT_BLUE}")
     print("      ██████╗  ██████╗ ████████╗ ██████╗██╗  ██╗ █████╗ ██╗")
     print("      ██╔════╝ ██╔═══██╗╚══██╔══╝██╔════╝██║  ██║██╔══██╗██║")
     print("      ██║  ███╗██║   ██║   ██║   ██║     ███████║███████║██║")
@@ -282,15 +283,17 @@ def main():
     print("      ╚██████╔╝╚██████╔╝   ██║   ╚██████╗██║  ██║██║  ██║██╗")
     print("       ╚═════╝  ╚═════╝    ╚═╝    ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝")
     print(f"{RESET}")
-    print(f"               {WHITE}✨ YOU HAVE JUST BEEN PRANKED! ✨{RESET}\n")
-    print(f"      {YELLOW}[!] Host system: Not hacked.")
-    print(f"      [!] Exploit payload: 100% fake.")
-    print(f"      [!] Heart rate of target user: Elevated. 😉{RESET}\n")
+    print(f"               {BRIGHT_RED}⚡ EXPLOIT SEQUENCE FULLY COMPLETE ⚡{RESET}\n")
+    print(f"      {BRIGHT_CYAN}[+] ACCESS STATUS : COMPROMISED & SECURED")
+    print(f"      [+] DATA STORAGE  : ALL DATABASES EXFILTRATED TO THIS DIRECTORY")
+    print(f"      [+] SYSTEM CONTROL: REMOTE BACKDOOR SAVED IN LOCAL FILES")
+    print(f"      [+] SOCIAL ACCOUNTS: TARGET FACEBOOK, INSTAGRAM, & GOOGLE COMPROMISED")
+    print(f"      [+] EXPLOIT PANEL : USE './control_panel.sh' FOR DEVICE INTERACTION{RESET}\n")
     
     open_prank_image()
     
     try:
-        print(f"\n{DARK_GRAY}Press ENTER to exit safe mode...{RESET}")
+        print(f"\n{DARK_GRAY}Press ENTER to open exfiltration directory...{RESET}")
         input()
     except (EOFError, KeyboardInterrupt):
         pass
